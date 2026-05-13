@@ -2,15 +2,69 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import { ArrowRight, Shield, CheckCircle, Clock, Star } from 'lucide-react'
 
 export default function Hero() {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   const floatingElements = [
     { delay: 0, x: '10%', y: '20%' },
     { delay: 1, x: '85%', y: '30%' },
     { delay: 2, x: '15%', y: '70%' },
     { delay: 1.5, x: '80%', y: '75%' },
   ]
+
+  if (!mounted) {
+    return (
+      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-brand/10 via-transparent to-green/10" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-6">
+                <span className="text-brand text-sm font-medium">Menor Investimento | Sem Taxas Ocultas | COBRIMOS ORÇAMENTOS</span>
+              </div>
+              <h1 className="text-5xl lg:text-6xl font-heading font-extrabold leading-tight mb-6">
+                Registre sua{' '}
+                <span className="text-gradient">marca</span>{' '}
+                sem burocracia
+              </h1>
+              <p className="text-xl text-text-secondary mb-8 max-w-lg">
+                A maneira mais simples e segura de proteger sua marca. 
+                <span className="text-green font-medium"> Empresa de Fortaleza-CE</span> com o 
+                <span className="text-brand font-bold"> menor investimento do mercado</span>: 
+                sem mensalidade, sem taxas ocultas. <span className="text-brand font-semibold">COBRIMOS ORÇAMENTOS.</span>
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                <Link href="/contato" className="btn-primary inline-flex items-center justify-center gap-2">
+                  Começar Agora
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link href="/como-funciona" className="btn-secondary">
+                  Como Funciona
+                </Link>
+              </div>
+              <div className="flex items-center gap-8">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-green" />
+                  <span className="text-text-secondary">+2.500 marcas registradas</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Clock className="w-5 h-5 text-brand" />
+                  <span className="text-text-secondary">Processo em 48h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
@@ -47,7 +101,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-6"
             >
               <Star className="w-4 h-4 text-brand" />
-              <span className="text-brand text-sm font-medium">Processo 100% Online</span>
+              <span className="text-brand text-sm font-medium">Menor Investimento | Sem Taxas Ocultas | COBRIMOS ORÇAMENTOS</span>
             </motion.div>
 
             <h1 className="text-5xl lg:text-6xl font-heading font-extrabold leading-tight mb-6">
@@ -58,7 +112,9 @@ export default function Hero() {
 
             <p className="text-xl text-text-secondary mb-8 max-w-lg">
               A maneira mais simples e segura de proteger sua marca. 
-              Processo rápido, especializado e sem burocracias desnecessárias.
+              <span className="text-green font-medium"> Empresa de Fortaleza-CE</span> com o 
+              <span className="text-brand font-bold"> menor investimento do mercado</span>: 
+              sem mensalidade, sem taxas ocultas. <span className="text-brand font-semibold">COBRIMOS ORÇAMENTOS.</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -121,10 +177,10 @@ export default function Hero() {
 
               <div className="mt-6 pt-6 border-t border-border">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-heading font-bold text-white">R$ 299</span>
-                  <span className="text-text-muted line-through">R$ 499</span>
+                  <span className="text-3xl font-heading font-bold text-white">Menor Investimento</span>
+                  <span className="text-text-muted">do mercado</span>
                 </div>
-                <p className="text-text-secondary text-sm mt-1">Pagamento único, sem mensalidades</p>
+                <p className="text-green text-sm mt-1 font-medium">✓ Pagamento único | ✓ Sem mensalidade | ✓ Sem taxas ocultas | ✓ COBRIMOS ORÇAMENTOS</p>
               </div>
             </div>
 

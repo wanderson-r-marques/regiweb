@@ -51,8 +51,8 @@ export default function Sobre() {
                 Sobre o <span className="text-gradient">Regiweb</span>
               </h1>
               <p className="text-xl text-text-secondary mb-6">
-                Nacemos com a missão de simplificar o registro de marcas no Brasil. 
-                acreditamos que proteção de marca deve ser acessível a todos os empreendedores.
+                Somos uma empresa de <span className="text-brand font-medium">Fortaleza-CE</span> que nasceu com a missão de simplificar o registro de marcas no Brasil. 
+                Acreditamos que proteção de marca deve ser acessível a todos os empreendedores.
               </p>
               <p className="text-lg text-text-secondary mb-8">
                 Com tecnologia e atendimento especializado, transformamos um processo 
@@ -165,8 +165,10 @@ export default function Sobre() {
             {[
               'Equipe especializada com anos de experiência',
               'Processo 100% online e sem burocracias',
+              'Menor investimento do mercado - pagamento único',
+              'Sem mensalidade - sem taxas ocultas',
+              'COBRIMOS ORÇAMENTOS de concorrentes',
               'Acompanhamento personalizado em cada etapa',
-              'Transparência total nos valores e prazos',
               'Suporte disponível para tirar suas dúvidas',
             ].map((item, index) => (
               <motion.div

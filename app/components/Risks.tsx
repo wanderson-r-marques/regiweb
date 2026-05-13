@@ -107,7 +107,7 @@ export default function Risks() {
             Não arrisque. Proteja o que você construiu.
           </p>
           <a href="/contato" className="btn-primary inline-flex">
-            Começar meu registro agora
+            Solicite um orçamento e comprove o menor custo do Brasil
           </a>
         </motion.div>
       </div>

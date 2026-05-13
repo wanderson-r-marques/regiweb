@@ -22,7 +22,7 @@ export default function Contato() {
   const contactInfo = [
     { icon: Mail, label: 'Email', value: 'contato@regiweb.com.br' },
     { icon: Phone, label: 'Telefone', value: '(11) 99999-9999' },
-    { icon: MapPin, label: 'Endereço', value: 'São Paulo, SP' },
+    { icon: MapPin, label: 'Endereço', value: 'Fortaleza, Ceará' },
     { icon: Clock, label: 'Atendimento', value: 'Seg a Sex, 9h às 18h' },
   ]
 

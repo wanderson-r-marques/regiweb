@@ -1,68 +1,56 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Search, FileText, CheckCircle, Clock, Shield, TrendingUp } from 'lucide-react'
+import { Search, FileText, CheckCircle, Clock, Shield, TrendingUp, ShieldCheck, AlertTriangle, Scale } from 'lucide-react'
 import Link from 'next/link'
 
-const steps = [
+const fases = [
   {
     number: '01',
-    title: 'Solicitação',
-    description: 'Você preenche nosso formulário com os dados da sua marca e escolhe o plano ideal para suas necessidades.',
-    icon: FileText,
-  },
-  {
-    number: '02',
     title: 'Pesquisa',
-    description: 'Nossa equipe realiza uma pesquisa completa no banco de dados do INPI para verificar a disponibilidade.',
+    description: 'Análise de viabilidade e busca de anterioridade para definir o sucesso do registro. Identificamos riscos antes de protocolar.',
     icon: Search,
   },
   {
+    number: '02',
+    title: 'Protocolo',
+    description: 'Entrada com o pedido de registro junto ao INPI para dar início ao processo. A partir daqui você já pode usar o símbolo ™.',
+    icon: FileText,
+  },
+  {
     number: '03',
-    title: 'Análise',
-    description: 'Analisamos o resultado e emitimos um relatório detalhado com a viabilidade do registro.',
-    icon: Shield,
+    title: 'Vigilância',
+    description: 'Acompanhamento das etapas e despachos deliberados pelo INPI. Monitoramos todo o processo para garantir que nada passe despercebido.',
+    icon: AlertTriangle,
   },
   {
     number: '04',
-    title: 'Protocolo',
-    description: 'Com a aprovação, protocolamos o pedido de registro no INPI em seu nome.',
-    icon: Clock,
-  },
-  {
-    number: '05',
-    title: 'Acompanhamento',
-    description: 'Acompanhamos todo o processo junto ao INPI até a concessão do registro.',
-    icon: TrendingUp,
-  },
-  {
-    number: '06',
-    title: 'Certificado',
-    description: 'Você recebe o certificado oficial de registro da sua marca.',
+    title: 'Concessão',
+    description: 'Entrega do certificado de registro (decênio), válido por 10 anos. Sua marca protegida em todo o território nacional.',
     icon: CheckCircle,
   },
 ]
 
-const faqs = [
+const servicosInclusos = [
   {
-    question: 'Quanto tempo leva o processo de registro?',
-    answer: 'O tempo médio é de 12 a 18 meses, desde o protocolo até a concessão do certificado. Mas você pode usar a marca com o protocolo desde o início.',
+    title: 'Busca e Análise de Marca',
+    description: 'Pesquisa completa no banco de dados do INPI para verificar disponibilidade e viabilidade do registro.',
+    icon: Search,
   },
   {
-    question: 'O que é o INPI?',
-    answer: 'O INPI (Instituto Nacional da Propriedade Industrial) é o órgão responsável pelo registro de marcas no Brasil.',
+    title: 'Pedido de Registro e Acompanhamento',
+    description: 'Protocolamos o pedido e acompanhamos todas as etapas junto ao INPI até a concessão.',
+    icon: Clock,
   },
   {
-    question: 'Preciso ter empresa para registrar uma marca?',
-    answer: 'Não. Pessoas físicas também podem registrar marcas. Pode ser para uso futuro ou para proteger um projeto.',
+    title: 'Defesa em Oposição e Recursos',
+    description: 'Caso alguém impugne seu registro, nossa equipe faz a defesa completa sem custo adicional.',
+    icon: Shield,
   },
   {
-    question: 'O que são classes de produtos e serviços?',
-    answer: 'As classes determinam em quais setores sua marca será protegida. existem 45 classes (34 de produtos e 11 de serviços).',
-  },
-  {
-    question: 'O que acontece depois que protocolo?',
-    answer: 'O INPI faz a análise técnica. Se tudo estiver certo, sua marca será publicada e após 60 dias sem oposição, segue para concessão.',
+    title: 'Instrução e Redação',
+    description: 'Preparamos toda a documentação necessária e orientamos sobre as classes corretas.',
+    icon: FileText,
   },
 ]
 
@@ -80,17 +68,17 @@ export default function ComoFunciona() {
             className="text-center mb-16"
           >
             <h1 className="text-5xl font-heading font-bold mb-6">
-              Como <span className="text-gradient">funciona</span>
+              As 4 <span className="text-gradient">Fases</span> do Registro
             </h1>
             <p className="text-xl text-text-secondary max-w-2xl mx-auto">
-              Entenda todo o processo de registro de marca em 6 etapas simples
+              Entenda cada etapa do processo de registro de marca no INPI
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {steps.map((step, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {fases.map((fase, index) => (
               <motion.div
-                key={step.number}
+                key={fase.number}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -98,52 +86,65 @@ export default function ComoFunciona() {
               >
                 <div className="flex items-center gap-4 mb-4">
                   <span className="text-4xl font-heading font-bold text-brand/30">
-                    {step.number}
+                    {fase.number}
                   </span>
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand to-green flex items-center justify-center">
-                    <step.icon className="w-6 h-6 text-white" />
+                    <fase.icon className="w-6 h-6 text-white" />
                   </div>
                 </div>
                 <h3 className="text-xl font-heading font-bold text-white mb-3">
-                  {step.title}
+                  {fase.title}
                 </h3>
                 <p className="text-text-secondary">
-                  {step.description}
+                  {fase.description}
                 </p>
               </motion.div>
             ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link href="/contato" className="btn-primary inline-flex items-center gap-2">
+              Solicite um orçamento e comprove o menor custo do Brasil
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </section>
 
       <section className="py-24 bg-bg-card">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
             <h2 className="text-4xl font-heading font-bold mb-4">
-              Perguntas <span className="text-gradient">frequentes</span>
+              O que está <span className="text-gradient">incluído</span>?
             </h2>
+            <p className="text-xl text-text-secondary max-w-2xl mx-auto">
+              Todos os serviços abaixo já estão inclusos no pacote, sem custo adicional
+            </p>
           </motion.div>
 
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {servicosInclusos.map((servico, index) => (
               <motion.div
-                key={faq.question}
-                initial={{ opacity: 0, y: 20 }}
+                key={servico.title}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-bg-primary rounded-xl p-6 border border-border"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="card"
               >
-                <h3 className="text-lg font-heading font-bold text-white mb-3">
-                  {faq.question}
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-green to-brand flex items-center justify-center mb-6">
+                  <servico.icon className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-xl font-heading font-bold text-white mb-3">
+                  {servico.title}
                 </h3>
                 <p className="text-text-secondary">
-                  {faq.answer}
+                  {servico.description}
                 </p>
               </motion.div>
             ))}
@@ -152,18 +153,94 @@ export default function ComoFunciona() {
       </section>
 
       <section className="py-24 bg-bg-primary">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-heading font-bold mb-4">
+              Sua marca <span className="text-gradient">protegida por lei</span>
+            </h2>
+          </motion.div>
+
+          <div className="space-y-6">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex gap-6 p-6 bg-bg-card rounded-xl border border-border"
+            >
+              <div className="w-12 h-12 rounded-lg bg-green/20 flex items-center justify-center shrink-0">
+                <Scale className="w-6 h-6 text-green" />
+              </div>
+              <div>
+                <h3 className="text-xl font-heading font-bold text-white mb-2">
+                  Base Legal: Lei da Propriedade Industrial 9.279/96
+                </h3>
+                <p className="text-text-secondary">
+                  O registro assegura o direito exclusivo de uso da marca em todo o território nacional, conforme a Lei da Propriedade Industrial 9.279/96.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex gap-6 p-6 bg-bg-card rounded-xl border border-border"
+            >
+              <div className="w-12 h-12 rounded-lg bg-brand/20 flex items-center justify-center shrink-0">
+                <ShieldCheck className="w-6 h-6 text-brand" />
+              </div>
+              <div>
+                <h3 className="text-xl font-heading font-bold text-white mb-2">
+                  Direito Exclusivo
+                </h3>
+                <p className="text-text-secondary">
+                  O registro impede que a marca seja copiada ou usada por terceiros sem sua autorização. Você tem a segurança jurídica necesaria para proteger seu negócio.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex gap-6 p-6 bg-bg-card rounded-xl border border-border"
+            >
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand to-green flex items-center justify-center shrink-0">
+                <CheckCircle className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h3 className="text-xl font-heading font-bold text-white mb-2">
+                  Taxas do INPI
+                </h3>
+                <p className="text-text-secondary">
+                  As únicas taxas externas são as taxas federais do INPI (GRU). Orientamos pessoas físicas, MEI e ME a obter os descontos legais de até 50% junto ao governo.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-bg-card">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-heading font-bold mb-6">
-            Still has questions?
+            Ainda tem dúvidas sobre o processo?
           </h2>
           <p className="text-text-secondary mb-8">
-            Our team is ready to clarify all your doubts.
+            Nossa equipe está pronta para esclarecer todas as suas dúvidas e幫助 você a proteger sua marca.
           </p>
           <Link href="/contato" className="btn-primary">
-            Talk to a specialist
+            Falar com um especialista
           </Link>
         </div>
       </section>
     </div>
   )
 }
+
+import { ArrowRight } from 'lucide-react'

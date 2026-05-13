@@ -39,7 +39,8 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-text-secondary mb-6 max-w-sm">
-              Simplificamos o registro de marcas para que você possa focar no crescimento do seu negócio. Processo 100% online e sem burocracia.
+              Empresa de <span className="text-brand font-medium">Fortaleza-CE</span>. Simplificamos o registro de marcas para que você possa focar no crescimento do seu negócio. 
+              <span className="text-green font-medium"> Menor investimento do mercado: pagamento único, sem mensalidade, sem taxas ocultas. COBRIMOS ORÇAMENTOS.</span>
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-text-secondary">
@@ -52,7 +53,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3 text-text-secondary">
                 <MapPin className="w-5 h-5 text-brand" />
-                <span>São Paulo, SP</span>
+                <span>Fortaleza, Ceará</span>
               </div>
             </div>
           </div>

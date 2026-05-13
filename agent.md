@@ -12,3 +12,10 @@ Fase 1 do desenvolvimento do site institucional do Regiweb. O foco desta fase é
 **Antes de implementar, verifique as Skills.**
 Se a Skill não existir, crie-a.
 Se mudar o código, atualize a Skill primeiro.
+
+## Regra de Git
+**ANTES de fazer git push, SEMPRE pergunte ao usuário:**
+1. "Quer enviar as alterações para o Git?"
+2. Se sim, pergunte: "Qual a mensagem do commit?"
+3. Use APENAS a mensagem que o usuário fornecer
+4. Após o commit, faça o push normalmente

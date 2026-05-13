@@ -1,9 +1,15 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Award, Users, Clock, ShieldCheck, HeadphonesIcon, FileCheck } from 'lucide-react'
+import { Award, Users, Clock, ShieldCheck, HeadphonesIcon, FileCheck, BadgeCent } from 'lucide-react'
 
 const differentiators = [
+  {
+    icon: BadgeCent,
+    title: 'Menor Investimento do Mercado',
+    description: 'Pagamento único, sem mensalidade, sem taxas ocultas. COBRIMOS ORÇAMENTOS de concorrentes.',
+    gradient: 'from-green to-brand',
+  },
   {
     icon: Award,
     title: 'Especialistas Certificados',
@@ -59,7 +65,8 @@ export default function Differentiators() {
             Por que escolher o <span className="text-gradient">Regiweb</span>?
           </h2>
           <p className="text-xl text-text-secondary max-w-2xl mx-auto">
-            Somos especializados em registro de marcas e oferecemos a melhor experiência para nossos clientes.
+            Empresa de <span className="text-brand font-medium">Fortaleza-CE</span> especializada em registro de marcas. 
+            <span className="text-green font-medium"> Menor investimento do mercado</span>: pagamento único, sem mensalidade, sem taxas ocultas.
           </p>
         </motion.div>
 

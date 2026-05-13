@@ -22,9 +22,12 @@ export default function CTA() {
           <h2 className="text-4xl lg:text-5xl font-heading font-bold mb-6">
             Pronto para <span className="text-gradient">proteger</span> sua marca?
           </h2>
-          <p className="text-xl text-text-secondary mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-text-secondary mb-6 max-w-2xl mx-auto">
             Não deixe sua marca vulnerável. Comece hoje mesmo seu processo de registro 
             e durma tranquilo sabendo que está protegido.
+          </p>
+          <p className="text-green font-medium mb-10 max-w-2xl mx-auto">
+            ✓ Menor investimento do mercado | ✓ Sem mensalidade | ✓ Sem taxas ocultas | ✓ COBRIMOS ORÇAMENTOS
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

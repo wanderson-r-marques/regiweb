@@ -10,8 +10,8 @@ const faqs = [
     answer: 'O tempo médio do processo no INPI é de 12 a 18 meses, desde o protocolo até a concessão do certificado. Mas você pode usar a marca com o protocolo desde o início.',
   },
   {
-    question: 'Qual o valor para registrar uma marca?',
-    answer: 'O valor depende do plano escolhido. Temos opções a partir de R$ 299 para registro completo, incluindo pesquisa anterior, análise e acompanhamento até o deferimento.',
+    question: 'Qual o investimento para registrar uma marca?',
+    answer: 'Oferecemos o menor investimento do mercado com transparência total. Sem mensalidade, sem taxas ocultas. Solicite um orçamento e comprove o menor custo do Brasil. COBRIMOS ORÇAMENTOS de concorrentes.',
   },
   {
     question: 'Preciso ter empresa para registrar uma marca?',
