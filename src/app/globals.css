@@ -1,29 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --bg-primary: #0a0a0a;
+  --bg-card: #202024;
+  --bg-card-hover: #29292e;
+  --color-brand: #8257e6;
+  --color-brand-light: #a78bfa;
+  --color-green: #00b37e;
+  --color-green-light: #00d68f;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --border-color: #323238;
+  --border-light: #3e3e42;
+  --gradient-brand: linear-gradient(135deg, #8257e6 0%, #00b37e 100%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  font-family: "Inter", sans-serif;
+}
+
+@layer components {
+  .text-gradient {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-brand {
+    box-shadow: 0 0 40px rgba(130, 87, 230, 0.3);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 40px rgba(0, 179, 126, 0.3);
+  }
+
+  .card-glow {
+    transition: all 0.3s ease;
+  }
+
+  .card-glow:hover {
+    box-shadow: 0 0 30px rgba(130, 87, 230, 0.2);
+    border-color: var(--color-brand);
+  }
+
+  .btn-primary {
+    @apply bg-brand hover:bg-brand-light text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-brand text-brand hover:bg-brand hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300;
+  }
+
+  .card {
+    @apply bg-bg-card border border-border rounded-xl p-6 transition-all duration-300;
+  }
+
+  .input {
+    @apply w-full bg-bg-card border border-border rounded-lg px-4 py-3 text-white placeholder-text-muted focus:outline-none focus:border-brand transition-colors;
+  }
 }
 
 @layer utilities {
