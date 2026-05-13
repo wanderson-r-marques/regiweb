@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-card: #202024;
+  --color-brand: #8257e6;
+  --color-green: #00b37e;
+  --gradient-brand: linear-gradient(135deg, #8257e6 0%, #00b37e 100%);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #8257e6 0%, #00b37e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-brand {
+    box-shadow: 0 0 40px rgba(130, 87, 230, 0.3);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 40px rgba(0, 179, 126, 0.3);
+  }
+
+  .card-glow {
+    transition: all 0.3s ease;
+  }
+
+  .card-glow:hover {
+    box-shadow: 0 0 30px rgba(130, 87, 230, 0.2);
+    border-color: rgba(130, 87, 230, 0.4);
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-brand text-white font-semibold rounded-lg transition-all duration-300 hover:bg-brand-light hover:scale-105 hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 border border-brand text-brand font-semibold rounded-lg transition-all duration-300 hover:bg-brand hover:text-white hover:scale-105;
+  }
+
+  .card {
+    @apply bg-bg-card rounded-xl p-6 border border-border transition-all duration-300;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 bg-bg-card border border-border rounded-lg text-white placeholder-text-muted focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all duration-300;
+  }
+}
