@@ -1,22 +1,23 @@
-#!/bin/sh
+$MSG = Get-Content -Path $args[0] -Raw
 
-MSG="$1"
+$PORTUGUESE_WORDS = @("adiciona", "altera", "corrige", "remove", "atualiza", "ajusta", "melhora", "refatora", "implementa", "cria", "testa", "teste", "adc", "alt", "corr", "rem", "atual", "ajs", "melhor", "impl", "del", "fix")
 
-# Common Portuguese (Brazil) words that should be used in commits
-PORTUGUESE_WORDS="adiciona|altera|corrige|remove|atualiza|ajusta|melhora|refatora|implementa|adc|alt|corr|rem|atual|ajs|melhor|refator|impl|cria|del|fix|feat|fix|chore|refactor|style|docs|test|perf|build|ci|revert"
+if ($MSG -match "^Merge|^Revert") {
+    exit 0
+}
 
-# Allow merge commits and revert commits
-if echo "$MSG" | grep -qi "^Merge\|^Revert"; then
-  exit 0
-fi
+$found = $false
+foreach ($word in $PORTUGUESE_WORDS) {
+    if ($MSG -imatch $word) {
+        $found = $true
+        break
+    }
+}
 
-# Check if the commit message contains at least one Portuguese word
-if ! echo "$MSG" | grep -qiE "$PORTUGUESE_WORDS"; then
-  echo "❌ A mensagem do commit deve estar em Português (Brasil)."
-  echo "   Use palavras como: adiciona, altera, corrige, remove, atualiza, implementa, etc."
-  echo ""
-  echo "   Example: 'adiciona novo componente de FAQ'"
-  exit 1
-fi
+if (-not $found) {
+    Write-Output "Erro: A mensagem do commit deve estar em Portugues (Brasil)."
+    Write-Output "Use palavras como: adiciona, altera, corrige, remove, atualiza, implementa, etc."
+    exit 1
+}
 
 exit 0

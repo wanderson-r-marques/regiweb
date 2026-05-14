@@ -3,5 +3,8 @@
 ## Git
 
 - **Commits**: Sempre usar mensagens em Português do Brasil (PT-BR).
-  - Palavras válidas: adiciona, altera, corrige, remove, atualiza, ajusta, melhora, refatora, implementa, cria, etc.
-  - Exemplo: `git commit -m "altera espaçamento do hero no mobile"`
+  - Palavras válidas: adiciona, altera, corrige, remove, atualiza, ajusta, melhora, refatora, implementa, cria, testa, teste, etc.
+  - Exemplos:
+    - `git commit -m "altera espaçamento do hero no mobile"`
+    - `git commit -m "adiciona novo componente de FAQ"`
+    - `git commit -m "corrige bug no formulário de contato"`
