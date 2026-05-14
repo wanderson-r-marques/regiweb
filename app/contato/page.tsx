@@ -119,7 +119,7 @@ export default function Contato() {
 
                     <div>
                       <label className="block text-text-secondary text-sm mb-2">
-                        Empresa (opicional)
+                        Empresa (opcional)
                       </label>
                       <input
                         type="text"

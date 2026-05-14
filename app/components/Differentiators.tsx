@@ -19,7 +19,7 @@ const differentiators = [
   {
     icon: Clock,
     title: 'Processo 100% Online',
-    description: 'Tudo pelo WhatsApp e email. Você não precisa ir a nenhum escritório física.',
+    description: 'Tudo pelo WhatsApp e email. Você não precisa ir a nenhum escritório físico.',
     gradient: 'from-green to-green-light',
   },
   {
@@ -43,7 +43,7 @@ const differentiators = [
   {
     icon: Users,
     title: '+2.500 Marcas Registradas',
-    description: 'Trilhares de satisfação comprovada. Clientes em todo o Brasil.',
+    description: 'Milhares de satisfação comprovada. Clientes em todo o Brasil.',
     gradient: 'from-green to-brand',
   },
 ]

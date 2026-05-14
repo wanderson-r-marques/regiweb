@@ -31,13 +31,13 @@ const testimonials = [
   {
     name: 'Paulo Henrique',
     company: 'Restaurante Sabor',
-    text: 'Excelente experiência. O processo foi 100% online e não precisei sair de casa. Minha marca está registrada e saya tranquila.',
+    text: 'Excelente experiência. O processo foi 100% online e não precisei sair de casa. Minha marca está registrada e estou tranquilo.',
     rating: 5,
   },
   {
     name: 'Fernanda Lima',
     company: 'Academia Fit',
-    text: 'Recomendo de olhos fechados! O suporte éhumanizado e o preço é justo. Minha marca foi registrada sem complicações.',
+    text: 'Recomendo de olhos fechados! O suporte é humanizado e o preço é justo. Minha marca foi registrada sem complicações.',
     rating: 5,
   },
 ]

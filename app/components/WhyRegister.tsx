@@ -13,18 +13,18 @@ const benefits = [
   {
     icon: Lock,
     title: 'Defesa Judicial',
-    description: 'Com o registro, você tem respaldo jurídico para actionar quem infringir sua marca. Proteção legal garantida.',
+    description: 'Com o registro, você tem respaldo jurídico para acionar quem infringir sua marca. Proteção legal garantida.',
     gradient: 'from-green to-green-light',
   },
   {
     icon: TrendingUp,
     title: 'Valorização do Negócio',
-    description: 'Marcas registradas têm maior valor de mercado. Um ativo intangível que appreciation seu negócio exponencialmente.',
+    description: 'Marcas registradas têm maior valor de mercado. Um ativo intangível que valoriza seu negócio exponencialmente.',
     gradient: 'from-brand to-green',
   },
   {
     icon: Gavel,
-    title: ' Marca é Direito',
+    title: 'Marca é Direito',
     description: 'Sem registro, sua marca não tem proteção legal. Não perca o que você construiu para alguém registrar primeiro.',
     gradient: 'from-green to-brand',
   },

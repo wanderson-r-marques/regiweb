@@ -5,7 +5,7 @@ import Footer from './components/Footer'
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://regiweb.com.br'),
-  title: 'Regiweb Fortaleza - Menor Investimento do Mercado | Registro de Marca no INPI',
+  title: 'Regiweb - Registro de Marcas',
   description: 'Empresa de Fortaleza-CE. O menor investimento do mercado para registro de marca no INPI. Sem mensalidade, sem taxas ocultas. COBRIMOS ORÇAMENTOS. +2.500 marcas registradas.',
   keywords: 'registro de marca, INPI, registro marca Fortaleza, menor investimento, marca sem mensalidade, sem taxas ocultas, registro marca Ceará',
   openGraph: {

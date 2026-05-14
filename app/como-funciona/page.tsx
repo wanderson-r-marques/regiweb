@@ -232,7 +232,7 @@ export default function ComoFunciona() {
             Ainda tem dúvidas sobre o processo?
           </h2>
           <p className="text-text-secondary mb-8">
-            Nossa equipe está pronta para esclarecer todas as suas dúvidas e幫助 você a proteger sua marca.
+            Nossa equipe está pronta para esclarecer todas as suas dúvidas e ajudar você a proteger sua marca.
           </p>
           <Link href="/contato" className="btn-primary">
             Falar com um especialista
