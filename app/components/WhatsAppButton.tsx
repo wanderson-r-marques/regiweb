@@ -17,13 +17,13 @@ export default function WhatsAppButton() {
       transition={{ duration: 0.5, delay: 0.5 }}
     >
       <motion.div
-        className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"
+        className="w-16 h-16 bg-green rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"
         animate={{
           scale: [1, 1.1, 1],
           boxShadow: [
-            '0 4px 20px rgba(34, 197, 94, 0.4)',
-            '0 8px 30px rgba(34, 197, 94, 0.6)',
-            '0 4px 20px rgba(34, 197, 94, 0.4)',
+            '0 4px 20px rgba(0, 179, 126, 0.4)',
+            '0 8px 30px rgba(0, 179, 126, 0.6)',
+            '0 4px 20px rgba(0, 179, 126, 0.4)',
           ],
         }}
         transition={{
