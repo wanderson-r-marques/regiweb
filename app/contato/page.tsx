@@ -191,7 +191,7 @@ export default function Contato() {
                   e tire todas as suas dúvidas sobre registro de marca.
                 </p>
                 <a 
-                  href="https://wa.me/5511999999999" 
+                  href="https://wa.me/55859861255" 
                   target="_blank"
                   className="btn-primary inline-flex"
                 >
