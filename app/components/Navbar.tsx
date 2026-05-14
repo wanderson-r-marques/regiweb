@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import { Menu, X, Shield } from 'lucide-react'
 
 const navLinks = [
+  { href: '/clientes', label: 'Clientes' },
   { href: '/como-funciona', label: 'Como Funciona' },
   { href: '/pesquisar-marca', label: 'Pesquisar Marca' },
   { href: '/sobre', label: 'Sobre' },
