@@ -8,3 +8,5 @@
     - `git commit -m "altera espaçamento do hero no mobile"`
     - `git commit -m "adiciona novo componente de FAQ"`
     - `git commit -m "corrige bug no formulário de contato"`
+
+- **Push**: NUNCA fazer push para o GitHub sem pedir aprovação do usuário primeiro.
