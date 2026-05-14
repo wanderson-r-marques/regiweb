@@ -1,0 +1,22 @@
+#!/bin/sh
+
+MSG="$1"
+
+# Common Portuguese (Brazil) words that should be used in commits
+PORTUGUESE_WORDS="adiciona|altera|corrige|remove|atualiza|ajusta|melhora|refatora|implementa|adc|alt|corr|rem|atual|ajs|melhor|refator|impl|cria|del|fix|feat|fix|chore|refactor|style|docs|test|perf|build|ci|revert"
+
+# Allow merge commits and revert commits
+if echo "$MSG" | grep -qi "^Merge\|^Revert"; then
+  exit 0
+fi
+
+# Check if the commit message contains at least one Portuguese word
+if ! echo "$MSG" | grep -qiE "$PORTUGUESE_WORDS"; then
+  echo "❌ A mensagem do commit deve estar em Português (Brasil)."
+  echo "   Use palavras como: adiciona, altera, corrige, remove, atualiza, implementa, etc."
+  echo ""
+  echo "   Example: 'adiciona novo componente de FAQ'"
+  exit 1
+fi
+
+exit 0

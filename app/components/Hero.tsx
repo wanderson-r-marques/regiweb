@@ -23,10 +23,10 @@ export default function Hero() {
     return (
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-brand/10 via-transparent to-green/10" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-3 md:mb-6">
                 <span className="text-brand text-sm font-medium">Menor Investimento | Sem Taxas Ocultas | COBRIMOS ORÇAMENTOS</span>
               </div>
               <h1 className="text-5xl lg:text-6xl font-heading font-extrabold leading-tight mb-6">
@@ -87,7 +87,7 @@ export default function Hero() {
         />
       ))}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -98,7 +98,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-3 md:mb-6"
             >
               <Star className="w-4 h-4 text-brand" />
               <span className="text-brand text-sm font-medium">Menor Investimento | Sem Taxas Ocultas | COBRIMOS ORÇAMENTOS</span>
