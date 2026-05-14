@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import './globals.css'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import WhatsAppButton from './components/WhatsAppButton'
+import '../globals.css'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+import WhatsAppButton from '../components/WhatsAppButton'
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://regiweb.com.br'),
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default function SiteLayout({
   children,
 }: {
   children: React.ReactNode
