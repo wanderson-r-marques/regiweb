@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useState } from 'react'
 import { Plus, Minus } from 'lucide-react'
 
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: 'Quais documentos preciso para registrar?',
-    answer: 'Basta fornecer seus dados pessoais (CPF, RG, endereço) e os dados da marca (nome,logan,descrição). Nossa equipe prepara toda a documentação necessária.',
+    answer: 'Basta fornecer seus dados pessoais (CPF, RG, endereço) e os dados da marca (nome, slogan, descrição). Nossa equipe prepara toda a documentação necessária.',
   },
   {
     question: 'O que são classes de produtos e serviços?',
@@ -39,8 +39,33 @@ const faqs = [
   },
 ]
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.1,
+    },
+  },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 100,
+      damping: 20,
+    },
+  },
+}
+
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const shouldReduceMotion = useReducedMotion()
 
   return (
     <section className="py-24 bg-bg-primary relative">
@@ -50,8 +75,8 @@ export default function FAQ() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: shouldReduceMotion ? 0.1 : 0.6, ease: 'easeOut' }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-heading font-bold mb-4">
@@ -62,14 +87,17 @@ export default function FAQ() {
           </p>
         </motion.div>
 
-        <div className="space-y-4">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          className="space-y-4"
+        >
           {faqs.map((faq, index) => (
             <motion.div
               key={faq.question}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
+              variants={itemVariants}
               className="bg-bg-card rounded-xl border border-border overflow-hidden"
             >
               <button
@@ -107,13 +135,13 @@ export default function FAQ() {
               </motion.div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: shouldReduceMotion ? 0.1 : 0.6, delay: 0.4 }}
           className="mt-12 text-center"
         >
           <p className="text-text-secondary mb-4">

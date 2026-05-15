@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useState } from 'react'
 import { Search, FileText, CheckCircle, ChevronDown, ChevronUp } from 'lucide-react'
 
@@ -45,6 +45,7 @@ const steps = [
 
 export default function Process() {
   const [openStep, setOpenStep] = useState<number | null>(0)
+  const shouldReduceMotion = useReducedMotion()
 
   return (
     <section className="py-24 bg-bg-primary relative">
@@ -54,8 +55,8 @@ export default function Process() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: shouldReduceMotion ? 0.1 : 0.6, ease: 'easeOut' }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-heading font-bold mb-4">
@@ -73,7 +74,7 @@ export default function Process() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
+              transition={{ duration: shouldReduceMotion ? 0.1 : 0.5, delay: index * 0.15 }}
               className="bg-bg-card rounded-xl border border-border overflow-hidden"
             >
               <button
@@ -131,7 +132,7 @@ export default function Process() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: shouldReduceMotion ? 0.1 : 0.6, delay: 0.4 }}
           className="mt-12 text-center"
         >
           <a href="/contato" className="btn-primary">

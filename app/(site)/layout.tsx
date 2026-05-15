@@ -28,6 +28,21 @@ export default function SiteLayout({
 }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                document.body.classList.add('js-loading');
+                window.addEventListener('load', function() {
+                  document.body.classList.remove('js-loading');
+                  document.body.classList.add('animate-in');
+                });
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className="bg-bg-primary text-white">
         <Navbar />
         <main>{children}</main>

@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { AlertTriangle, XCircle, DollarSign, Users, Building, Clock } from 'lucide-react'
 
 const risks = [
@@ -42,7 +42,33 @@ const risks = [
   },
 ]
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 100,
+      damping: 20,
+    },
+  },
+}
+
 export default function Risks() {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <section className="py-24 bg-bg-card relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-t from-brand/5 to-transparent" />
@@ -51,8 +77,8 @@ export default function Risks() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: shouldReduceMotion ? 0.1 : 0.6, ease: 'easeOut' }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-heading font-bold mb-4">
@@ -63,14 +89,17 @@ export default function Risks() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {risks.map((risk, index) => (
             <motion.div
               key={risk.title}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              variants={itemVariants}
               className="bg-bg-primary rounded-xl p-6 border border-border hover:border-red-500/30 transition-colors group"
             >
               <div className="flex items-start gap-4">
@@ -94,13 +123,13 @@ export default function Risks() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: shouldReduceMotion ? 0.1 : 0.6, delay: 0.3 }}
           className="mt-12 text-center"
         >
           <p className="text-text-secondary mb-6">
