@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
 
-export default function AdminLoginPage() {
+export default function ClienteLoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -30,7 +30,7 @@ export default function AdminLoginPage() {
       }
 
       if (data.user) {
-        window.location.href = '/admin/dashboard'
+        window.location.href = '/cliente/dashboard'
       }
     } catch (err) {
       setError('Erro de conexão')
@@ -42,8 +42,8 @@ export default function AdminLoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-bg-primary">
       <div className="w-full max-w-md p-8">
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-white">Area Admin</h1>
-          <p className="text-text-secondary mt-2">Faça login para continuar</p>
+          <h1 className="text-2xl font-bold text-white">Área do Cliente</h1>
+          <p className="text-text-secondary mt-2">Faça login para acessar suas marcas</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-4">

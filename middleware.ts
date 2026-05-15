@@ -3,22 +3,22 @@ import { NextResponse, type NextRequest } from 'next/server'
 
 export async function middleware(request: NextRequest) {
   const response = NextResponse.next()
-  
+
   const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder',
     {
       cookies: {
         getAll() {
           return request.cookies.getAll()
         },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) =>
+          cookiesToSet.forEach(({ name, value, options }) => {
             request.cookies.set(name, value)
-          )
-          cookiesToSet.forEach(({ name, value, options }) =>
+          })
+          cookiesToSet.forEach(({ name, value, options }) => {
             response.cookies.set(name, value)
-          )
+          })
         },
       },
     }
@@ -26,45 +26,31 @@ export async function middleware(request: NextRequest) {
 
   const { data: { user } } = await supabase.auth.getUser()
 
-  const isAdminRoute = request.nextUrl.pathname.startsWith('/admin')
-  const isLoginPage = request.nextUrl.pathname === '/admin/login'
+  const pathname = request.nextUrl.pathname
 
-  // Se não está logado e tenta acessar /admin (não login)
+  const isAdminRoute = pathname.startsWith('/admin')
+  const isClienteRoute = pathname.startsWith('/cliente')
+  const isLoginPage = pathname === '/admin/login' || pathname === '/cliente/login'
+
   if (!user && isAdminRoute && !isLoginPage) {
     return NextResponse.redirect(new URL('/admin/login', request.url))
   }
 
-  // Se está logado e tenta acessar a página de login, redireciona para /admin
-  if (user && isLoginPage) {
-    // Verificar se é admin
-    const { data: perfil } = await supabase
-      .from('perfis')
-      .select('role')
-      .eq('id', user.id)
-      .single()
-
-    if (perfil?.role === 'admin') {
-      return NextResponse.redirect(new URL('/admin', request.url))
-    }
+  if (!user && isClienteRoute && !isLoginPage) {
+    return NextResponse.redirect(new URL('/cliente/login', request.url))
   }
 
-  // Se está logado mas não é admin e tenta acessar admin
-  if (user && isAdminRoute && !isLoginPage) {
-    const { data: perfil } = await supabase
-      .from('perfis')
-      .select('role')
-      .eq('id', user.id)
-      .single()
+  if (user && pathname === '/admin/login') {
+    return NextResponse.redirect(new URL('/admin/dashboard', request.url))
+  }
 
-    if (perfil?.role !== 'admin') {
-      await supabase.auth.signOut()
-      return NextResponse.redirect(new URL('/admin/login', request.url))
-    }
+  if (user && pathname === '/cliente/login') {
+    return NextResponse.redirect(new URL('/cliente/dashboard', request.url))
   }
 
   return response
 }
 
 export const config = {
-  matcher: ['/admin/:path*'],
+  matcher: ['/admin/:path*', '/cliente/:path*'],
 }

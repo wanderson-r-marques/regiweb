@@ -84,7 +84,7 @@ export default function Testimonials() {
               <div className="relative mb-4">
                 <Quote className="w-8 h-8 text-brand/20 absolute -top-1 -left-1" />
                 <p className="text-text-secondary leading-relaxed pl-4">
-                  "{testimonial.text}"
+                  &quot;{testimonial.text}&quot;
                 </p>
               </div>
 
