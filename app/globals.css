@@ -114,6 +114,10 @@ h1, h2, h3, h4, h5, h6 {
     @apply px-6 py-3 border border-brand text-brand font-semibold rounded-lg transition-all duration-300 hover:bg-brand hover:text-white hover:scale-105;
   }
 
+  .btn-green {
+    @apply px-6 py-3 bg-green text-white font-semibold rounded-lg transition-all duration-300 hover:bg-green-light hover:scale-105 hover:shadow-lg;
+  }
+
   .card {
     @apply bg-bg-card rounded-xl p-6 border border-border transition-all duration-300;
   }
