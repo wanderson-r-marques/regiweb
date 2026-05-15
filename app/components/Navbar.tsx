@@ -7,11 +7,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Shield, UserCircle } from 'lucide-react'
 
 const navLinks = [
-  { href: '/clientes', label: 'Clientes' },
-  { href: '/como-funciona', label: 'Como Funciona' },
-  { href: '/pesquisar-marca', label: 'Pesquisar Marca' },
   { href: '/sobre', label: 'Sobre' },
-  { href: '/blog', label: 'Blog' },
+  { href: '/como-funciona', label: 'Como Funciona' },
+  { href: '/clientes', label: 'Clientes' },
+  { href: '/pesquisar-marca', label: 'Pesquisar Marca' },
+  { href: '/blog', label: 'Notícias' },
   { href: '/contato', label: 'Contato' },
 ]
 
