@@ -58,10 +58,10 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: staggerDelay * 2, duration: animationDuration }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 mb-3 md:mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green/10 border border-green/20 mb-3 md:mb-6"
             >
-              <Star className="w-4 h-4 text-brand" />
-              <span className="text-brand text-sm font-medium">Menor Investimento | Sem Taxas Ocultas | COBRIMOS ORÇAMENTOS</span>
+              <Star className="w-4 h-4 text-green" />
+              <span className="text-green text-sm font-medium">Menor Investimento | Sem Taxas Ocultas | COBRIMOS ORÇAMENTOS</span>
             </motion.div>
 
             <motion.h1
