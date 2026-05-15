@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { Menu, X, Shield } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Menu, X, Shield, UserCircle } from 'lucide-react'
 
 const navLinks = [
   { href: '/clientes', label: 'Clientes' },
@@ -74,12 +74,13 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-4">
             <Link 
-              href="/contato"
-              className="btn-primary"
+              href="/cliente/login"
+              className="btn-primary flex items-center gap-2"
             >
-              Começar Agora
+              <UserCircle className="w-5 h-5" />
+              <span>Área do Cliente</span>
             </Link>
           </div>
 
@@ -91,36 +92,45 @@ export default function Navbar() {
           </button>
         </div>
 
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-bg-primary pb-6"
-          >
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`text-lg font-medium transition-colors ${
-                    pathname === link.href ? 'text-brand' : 'text-text-secondary hover:text-white'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <Link 
-                href="/contato"
-                className="btn-primary text-center mt-4"
-                onClick={() => setIsMobileMenuOpen(false)}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden absolute left-0 right-0 bg-bg-primary py-6 px-4"
+            >
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.15, duration: 0.2 }}
+                className="flex flex-col gap-4 -mx-4 px-4"
               >
-                Começar Agora
-              </Link>
-            </div>
-          </motion.div>
-        )}
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`text-lg font-medium transition-colors ${
+                      pathname === link.href ? 'text-brand' : 'text-text-secondary hover:text-white'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                <Link 
+                  href="/cliente/login"
+                  className="btn-primary flex items-center justify-center gap-2 w-full"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <UserCircle className="w-5 h-5" />
+                  <span>Área do Cliente</span>
+                </Link>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.nav>
   )
