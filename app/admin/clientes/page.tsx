@@ -213,6 +213,9 @@ export default function AdminClientesPage() {
                 </button>
                 {menuOpen && (
                   <div className="absolute right-0 mt-2 w-48 bg-bg-card border border-border rounded-lg shadow-lg overflow-hidden z-[100]">
+                    <a href="/admin/dashboard" className="block px-4 py-2 text-white hover:bg-border/50 transition-colors">
+                      Painel
+                    </a>
                     <a href="/admin/clientes" className="block px-4 py-2 text-white hover:bg-border/50 transition-colors">
                       Cadastrar Cliente
                     </a>
