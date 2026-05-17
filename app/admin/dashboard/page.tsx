@@ -17,6 +17,7 @@ export default function AdminDashboardPage() {
   const supabase = createClient()
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const checkUser = async () => {
@@ -62,36 +63,47 @@ export default function AdminDashboardPage() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="backdrop-blur-xl bg-bg-card/30 border border-border rounded-2xl p-6 mb-8"
+          className="backdrop-blur-xl bg-bg-card/30 border border-border rounded-2xl p-6 mb-8 z-50 relative"
         >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand to-green flex items-center justify-center shadow-lg shadow-brand/20">
-                <Shield className="w-6 h-6 text-white" />
+          <div className="flex flex-row items-center justify-between gap-2 sm:gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-brand to-green flex items-center justify-center shadow-lg shadow-brand/20">
+                <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-white">Painel Admin</h1>
-                <p className="text-sm text-text-secondary">
-                  Bem-vindo de volta!
+                <h1 className="text-lg sm:text-xl font-bold text-white">Admin</h1>
+                <p className="text-xs sm:text-sm text-text-secondary hidden sm:block">
+                  Bem-vindo!
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
-              <Link
-                href="/admin/clientes"
+            <div className="relative z-[100]">
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
                 className="flex items-center gap-2 px-4 py-2 bg-bg-primary/50 border border-border rounded-xl text-text-secondary hover:text-white hover:border-brand/50 transition-all"
               >
-                <Users className="w-4 h-4" />
-                <span className="text-sm">Clientes</span>
-              </Link>
-              <button
-                onClick={handleLogout}
-                className="flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 hover:bg-red-500/20 hover:border-red-500/50 transition-all"
-              >
-                <LogOut className="w-4 h-4" />
-                <span className="text-sm">Sair</span>
+                <span className="text-sm">Menu</span>
               </button>
+              {menuOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-bg-card border border-border rounded-lg shadow-lg overflow-hidden z-[100]">
+                  <a href="/admin/clientes" className="block px-4 py-2 text-white hover:bg-border/50 transition-colors">
+                    Cadastrar Cliente
+                  </a>
+                  <a href="/admin/empresas/novo" className="block px-4 py-2 text-white hover:bg-border/50 transition-colors">
+                    Cadastrar Empresa
+                  </a>
+                  <a href="/admin/marcas/novo" className="block px-4 py-2 text-white hover:bg-border/50 transition-colors">
+                    Cadastrar Marca
+                  </a>
+                  <button
+                    onClick={handleLogout}
+                    className="w-full text-left px-4 py-2 text-red-400 hover:bg-border/50 transition-colors"
+                  >
+                    Sair
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </motion.div>
