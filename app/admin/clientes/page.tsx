@@ -431,7 +431,7 @@ export default function AdminClientesPage() {
                       value={formData.cpf_cnpj}
                       onChange={(e) => setFormData({ ...formData, cpf_cnpj: e.target.value })}
                       className="w-full px-4 py-3 bg-bg-primary/50 border border-border rounded-xl text-white placeholder:text-text-secondary/50 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand/50 transition-all"
-                      placeholder={formData.tipo_pessoa === 'PF' ? '000.000.000-00' : '00.000.000/0001-00'}
+                      placeholder="000.000.000-00 ou 00.000.000/0001-00"
                     />
                   </div>
                 </div>
